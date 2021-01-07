@@ -1,0 +1,13 @@
+
+plugins {
+    id 'com.github.dgoffredo.queens.java-application-conventions'
+}
+
+dependencies {
+    implementation project(':backtracking')
+    implementation project(':solver')
+}
+
+application {
+    mainClass = 'com.github.dgoffredo.queens.cli.Tool'
+}

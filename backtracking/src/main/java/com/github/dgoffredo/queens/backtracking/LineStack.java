@@ -2,19 +2,29 @@ package com.github.dgoffredo.queens.backtracking;
 
 import java.util.ArrayList;
 
-// TODO document
+// LineStack is a collection of lines on a chessboard. It's a "stack" in the
+// sense that lines are added and removed in a last-in-first-out (LIFO) order,
+// as the backtracking solver searches for a solution.
 public class LineStack {
 
     // a square on a chessboard
     static class Square {
         public int file;
         public int rank;
+
+        public String toString() {
+            return String.format("(%d, %d)", file, rank);
+        }
     }
 
     // A line connects two squares: a "tail" to a "head" (imagine an arrow).
     static class Line {
         public Square tail;
         public Square head;
+
+        public String toString() {
+            return String.format("<%s→%s>", tail, head);
+        }
     }
 
     private ArrayList<Line> lines = new ArrayList<Line>();
@@ -111,5 +121,28 @@ public class LineStack {
         }
 
         squares.add(square);
+    }
+
+    public void clear() {
+        lines.clear();
+        squares.clear();
+    }
+
+    // for debugging
+    public String toString() {
+        var builder = new StringBuilder();
+        builder.append("LineStack:\n");
+        builder.append("    lines:");
+        for (var line : lines) {
+            builder.append(" ");
+            builder.append(line.toString());
+        }
+        builder.append("\n    squares:");
+        for (var square : squares) {
+            builder.append(" ");
+            builder.append(square.toString());
+        }
+
+        return builder.toString();
     }
 }

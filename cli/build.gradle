@@ -11,3 +11,7 @@ dependencies {
 application {
     mainClass = 'com.github.dgoffredo.queens.cli.Tool'
 }
+
+run {
+    enableAssertions = true
+}

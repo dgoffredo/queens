@@ -11,7 +11,7 @@ public class Chessboard {
         @Override
         public String toString() {
             if (this == EMPTY) {
-                    return ".";
+                    return "·";
             } else {
                 assert this == QUEEN;
                 return "♛";

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+gradle_wrapper="$(dirname "$0")/gradlew"
+"$gradle_wrapper" --console=plain --quiet run --args="$*"

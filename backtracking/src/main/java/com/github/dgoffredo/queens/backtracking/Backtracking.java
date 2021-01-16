@@ -6,6 +6,11 @@ import java.util.BitSet;
 import com.github.dgoffredo.queens.solver.Chessboard;
 import com.github.dgoffredo.queens.solver.Solver;
 
+// The backtracking solver places queens one file at a time. When it
+// can no longer place a queen, it moves the previous queen to the next
+// available rank. If it can't move that one, then it moves the previous, etc.
+// until either it has found a solution or exhausted half of the ranks in the
+// first file.
 public class Backtracking implements Solver {
     // rankOccupancy says whether any queen occupies a rank. The index into the
     // BitSet is the rank index.

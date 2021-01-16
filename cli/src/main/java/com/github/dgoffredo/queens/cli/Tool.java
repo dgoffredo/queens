@@ -31,6 +31,7 @@ class Tool implements Callable<Integer> {
 
         if (solverName != "backtracking") {
             System.err.printf("--solver must be \"backtracking\" (the default), not %s\n", solverName);
+            return 2;
         }
 
         var solver = new Backtracking();

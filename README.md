@@ -99,12 +99,12 @@ kept track of using a bit vector, where each bit corresponds to a rank and is
 occupied if there is a queen at that rank. Similarly, both forward and backward
 flavors of diagonals are kept track of using bit vectors.
 
-Lines that are not ranks, columns, or diagonals (i.e. lines whose slope is none
-of 0, 1, -1, ∞, -∞) are kept track of using a custom data structure that I call a
-[line stack][4]. When a queen is added to the chessboard, a line is added to
-line stack for each other queen on the chessboard. When a queen is removed from
-the chessboard, it is always the most recent queen, and so lines can be removed
-from the end only – hence "stack."
+Lines that are not ranks, columns, or diagonals (i.e. lines whose slope is
+none of 0, 1, -1, ∞, -∞) are kept track of using a custom data structure
+that I call a [line stack][4]. When a queen is added to the chessboard, a
+line is added to the line stack for each other queen on the chessboard. When
+a queen is removed from the chessboard, it is always the most recent queen,
+and so lines can be removed from the end only – hence "stack."
 
 To determine whether a proposed queen lies on some existing line, each line
 is checked individually, in order (i.e., it's a linear scan). This could be
